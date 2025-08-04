@@ -43,49 +43,43 @@ export default function HyundaiCustomizer() {
 
   return (
     <div className="container mx-auto px-4 py-8 font-sans">
-      <nav className="flex justify-between items-center py-4">
-        <div className="text-lg font-bold">Hyundai Custom</div>
-        <ul className="flex gap-4">
-          <li><a href="#">Models</a></li>
-          <li><a href="#">Build</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-
       <main>
         <h2 className="text-2xl font-bold">Build Your Hyundai</h2>
         <p className="mb-4">Customize your dream car and get an instant price</p>
 
         <figure className="mb-4">
-          <img
-            src="https://images.unsplash.com/photo-1617529403273-53e25ba37b43"
-            alt="Hyundai car"
-            className="w-full h-auto"
-          />
+
           <figcaption>
             <a
               href="https://unsplash.com/photos/gray-hyundai-car-in-front-of-building-0IuP3qz1T7M"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Image via Unsplash
             </a>
           </figcaption>
         </figure>
 
         <section className="mb-6">
           <h3 className="text-xl font-semibold mb-2">1. Choose Engine and Hardware</h3>
-          <div className="grid gap-2">
-            {engineOptions.map(({ name, price }) => (
-              <button
-                key={name}
-                onClick={() => setSelectedEnginePrice(price)}
-                className="w-full border py-2 px-4 rounded hover:bg-gray-100"
-              >
-                {name} {price > 0 && `(+$${price})`}
-              </button>
-            ))}
+          <div className="grid">
+            <div className="col">
+              {engineOptions.map(({ name, price }) => (
+                <button
+                  key={name}
+                  onClick={() => setSelectedEnginePrice(price)}
+                  className="h-6rem w-15rem m-2 bg-white border-blue-900 border-round hover:bg-gray-100">
+                  {name} {price > 0 && `(+$${price})`}
+                </button>
+              ))}
+            </div>
           </div>
+        </section>
+        <section className="mb-6">
+          <img
+            src="https://www.hyundai.com/content/dam/hyundai/template_en/en/images/find-a-car/pip/i10-2021/exterior/exterior%20color/i10-ac3-design-exterior-color-12-pc.jpg"
+            alt="Hyundai car"
+            className="w-8 h-auto"
+          />
         </section>
 
         <section className="mb-6">
@@ -124,24 +118,17 @@ export default function HyundaiCustomizer() {
         <div id="price-display" className="text-2xl font-bold mt-6">
           Total Price: ${totalPrice.toLocaleString()}
         </div>
+        <div>
+          <button type="button" className="cursor-pointer bg-blue-900 text-white border-round mt-6 w-8rem h-3rem font-bold">
+            Continue
+          </button>
+
+        </div>
       </main>
 
-      <section className="mt-12">
-        <h2 className="text-xl font-semibold">Stay Updated</h2>
-        <p>Subscribe for Hyundai news and offers</p>
-        <form className="grid gap-4 max-w-md mt-4" onSubmit={(e) => e.preventDefault()}>
-          <input type="text" placeholder="First name" required />
-          <input type="email" placeholder="Email" required />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-            Subscribe
-          </button>
-        </form>
-      </section>
 
-      <footer className="mt-12 text-sm">
-        <a href="#" className="mr-4">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </footer>
+
+
 
       <style jsx>{`
         .color-swatch {

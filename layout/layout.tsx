@@ -6,7 +6,7 @@ import { useEventListener, useMountEffect, useUnmountEffect } from 'primereact/h
 import React, { useContext, useEffect, useRef } from 'react';
 import { classNames } from 'primereact/utils';
 import AppFooter from './AppFooter';
-import AppSidebar from './AppSidebar';
+
 import AppTopbar from './AppTopbar';
 import AppConfig from './AppConfig';
 import { LayoutContext } from './context/layoutcontext';
@@ -126,10 +126,7 @@ const Layout = ({ children }: ChildContainerProps) => {
         <React.Fragment>
             <div className={containerClass}>
                 <AppTopbar ref={topbarRef} />
-                <div ref={sidebarRef} className="layout-sidebar">
-                    <AppSidebar />
-                </div>
-                <div className="layout-main-container">
+                <div className="layout-main-container bg-white">
                     <div className="layout-main">{children}</div>
                     <AppFooter />
                 </div>

@@ -6,29 +6,26 @@ import { Button } from 'primereact/button';
 
 
 
-const CarComponent = ({modelName,modelImageUrl,price,detailsUrl}) => {
+const CarComponent = ({ modelName, modelImageUrl, detailsUrl }) => {
 
-    
-function handleClickDetailButton(){
+
+    function handleClickDetailButton() {
     }
     return (
-        <Card>
-            <div className='flex flex-column align-items-center'>
 
-                <div className='border-round-xl'>
-                    <Image src={modelImageUrl} alt="Image" width="250" />
-                </div>
-                <div className='flex flex-column w-9'>
-                    <span className='text-3xl font-bold'>{modelName}</span>
-                    <span className='font-semibold text-blue-800'>{price}</span>
-                </div>
-                <div className='flex flex-row justify-content-end w-full'>
-                    <a href={detailsUrl} className="p-button font-bold text-50">
-                        Details
-                    </a>
-                </div>
+        <div className='flex flex-column align-items-center pt-6 surface-section border-0 hover:border-blue-900 border-2 border-round text-surface-100 font-bold m-2 flex align-items-center justify-content-center" w-19rem h-16rem'>
+
+            <div className='border-round-xl '>
+                <a href={detailsUrl} className=" font-bold text-50 ">
+                    <Image src={modelImageUrl}  alt="Image" width="200" />
+                </a>
             </div>
-        </Card>
+            <div className='flex flex-column w-9'>
+                <span className='text-xl font-light flex justify-content-center'>{modelName}</span>
+            </div>
+            
+        </div>
+
     );
 };
 

@@ -7,10 +7,10 @@ const AppFooter = () => {
     const { layoutConfig } = useContext(LayoutContext);
 
     return (
-        <div className="layout-footer">
-            <img src={`/layout/images/logo-${layoutConfig.colorScheme === 'light' ? 'dark' : 'white'}.svg`} alt="Logo" height="20" className="mr-2" />
-            by
-            <span className="font-medium ml-2">PrimeReact</span>
+        <div className="layout-footer text-blue-900 font-light ">
+            <a href="#" className="mr-4">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            
         </div>
     );
 };

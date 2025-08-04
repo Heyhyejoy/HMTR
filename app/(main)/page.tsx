@@ -128,6 +128,17 @@ const Dashboard = () => {
         <div className="grid">
             <div className="col-12 lg:col-6 xl:col-3">
                 <div className="card mb-0">
+                    <section className="mt-12">
+                        <h2 className="text-xl font-semibold">Stay Updated</h2>
+                        <p>Subscribe for Hyundai news and offers</p>
+                        <form className="grid gap-4 max-w-md mt-4" onSubmit={(e) => e.preventDefault()}>
+                            <input type="text" placeholder="First name" required />
+                            <input type="email" placeholder="Email" required />
+                            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                                Subscribe
+                            </button>
+                        </form>
+                    </section>
                     <div className="flex justify-content-between mb-3">
                         <div>
                             <span className="block text-500 font-medium mb-3">Orders</span>
