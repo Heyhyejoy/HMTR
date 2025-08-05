@@ -34,10 +34,10 @@ const CarsListingPage = () => {
                     className="w-full h-auto"
                 />
             </div>
-            <h4 className='mb-4 font-bold text-4xl text-blue-900'>Our Car Models</h4>
+            <h4 className='mb-4 font-bold text-4xl text-blue-900 ml-8 mt-8'>Our Car Models</h4>
             <div className="grid">
                 {ourCarModels.map((modelItem) => {
-                    return <div className='col'>
+                    return <div className='flex'>
                         <CarComponent
                             modelName={modelItem.Name}
                             modelImageUrl={modelItem.ImageUrl}

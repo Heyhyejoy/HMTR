@@ -30,14 +30,9 @@ export default function HyundaiCustomizer() {
 
   const rimOptions = [
     {
-      name: "Standard",
+      name: "15″ Alloy Wheels",
       price: 0,
       img: "https://images.unsplash.com/photo-1617818493719-bca78b7d6f2f",
-    },
-    {
-      name: "Sport",
-      price: 499,
-      img: "https://images.unsplash.com/photo-1589307000275-6524be1ab3c6",
     },
   ];
 
@@ -100,17 +95,17 @@ export default function HyundaiCustomizer() {
           <h3 className="text-xl font-semibold mb-2">3. Choose Rims</h3>
           <div className="flex gap-4">
             {rimOptions.map(({ name, price, img }) => (
-              <div
+              <button
                 key={name}
                 onClick={() => {
                   setSelectedRim(name);
                   setSelectedRimPrice(price);
                 }}
-                className={`rim-option ${selectedRim === name ? "selected" : ""}`}
+                className= {`rim-option ${selectedRim === name ? "selected" : ""} h-6rem w-15rem m-2 bg-white border-blue-900 border-round hover:bg-gray-100`}
               >
-                <img src={img} alt={`${name} Rim`} className="w-16 h-16 rounded" />
+                
                 <p>{name} {price > 0 && `(+$${price})`}</p>
-              </div>
+              </button>
             ))}
           </div>
         </section>
@@ -119,7 +114,7 @@ export default function HyundaiCustomizer() {
           Total Price: ${totalPrice.toLocaleString()}
         </div>
         <div>
-          <button type="button" className="cursor-pointer bg-blue-900 text-white border-round mt-6 w-8rem h-3rem font-bold">
+          <button type="button" className="right-50 cursor-pointer bg-blue-900 text-white border-round mt-6 w-8rem h-3rem font-bold">
             Continue
           </button>
 
