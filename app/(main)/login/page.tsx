@@ -13,8 +13,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login-wrapper">
-      <form className="login-box" onSubmit={handleSubmit}>
+    <div className="login-wrapper" style={{fontFamily: 'noto-sans, sans-serif'}}>
+      <form className="login-box mb-4 lowercase" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <p>to get started</p>
         <input
@@ -31,7 +31,7 @@ const Login: React.FC = () => {
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <div className="forgot-password">
+        <div className="forgot-password mb-5">
           <a href="#">Forgot Password?</a>
         </div>
         <button type="submit">Continue</button>
@@ -60,12 +60,18 @@ const Login: React.FC = () => {
 
         .login-box h1 {
           margin-bottom: 0;
+          font-size: 1.8rem;
+          font-weight: bold;
+          font-family: 'noto-sans', sans-serif;
         }
 
         .login-box p {
           margin-top: 0.25rem;
           margin-bottom: 1.5rem;
           color: #555;
+          font-size: 1rem;
+          font-weight: bold;
+          font-family: 'noto-sans', sans-serif;
         }
 
         .login-box input {
@@ -76,6 +82,7 @@ const Login: React.FC = () => {
           border: 1px solid #ddd;
           border-radius: 6px;
           font-size: 1rem;
+          font-family: 'noto-sans', sans-serif;
         }
 
         .login-box input:focus {
@@ -89,6 +96,7 @@ const Login: React.FC = () => {
         }
 
         .forgot-password a {
+          font-family: 'noto-sans', sans-serif; 
           font-size: 0.9rem;
           color: #555;
           text-decoration: none;
@@ -101,6 +109,8 @@ const Login: React.FC = () => {
           border: none;
           padding: 0.75rem;
           border-radius: 6px;
+          font-family: 'noto-sans', sans-serif;
+          font-weight: bold;
           font-size: 1rem;
           cursor: pointer;
         }
@@ -112,12 +122,15 @@ const Login: React.FC = () => {
         .register-link {
           text-align: center;
           margin-top: 1rem;
+          font-family: 'noto-sans', sans-serif;
+          color: #555;
           font-size: 0.9rem;
         }
 
         .register-link a {
+          font-family: 'noto-sans', sans-serif;
           font-weight: bold;
-          color: #333;
+          color: #555;
           text-decoration: none;
         }
       `}</style>

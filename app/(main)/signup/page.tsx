@@ -41,6 +41,7 @@ const SignUp: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           required
+          className="lowercase"
         />
         <input
           type="password"
@@ -87,6 +88,8 @@ const SignUp: React.FC = () => {
           font-size: 1.8rem;
           font-weight: bold;
           margin-bottom: 1.5rem;
+          font-weight: bold;
+          font-family: 'noto-sans', sans-serif;
         }
 
         .signup-box input {
@@ -111,6 +114,8 @@ const SignUp: React.FC = () => {
           padding: 0.75rem;
           border-radius: 6px;
           font-size: 1rem;
+          font-family: 'noto-sans', sans-serif;
+          font-weight: bold;
           cursor: pointer;
         }
 
@@ -122,6 +127,7 @@ const SignUp: React.FC = () => {
           text-align: center;
           margin-top: 1rem;
           font-size: 0.9rem;
+          font-family: 'noto-sans', sans-serif;
           color: #555;
         }
 

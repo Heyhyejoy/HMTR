@@ -8,15 +8,12 @@ import { Button } from 'primereact/button';
 
 const CarComponent = ({ modelName, modelImageUrl, detailsUrl }) => {
 
-
-    function handleClickDetailButton() {
-    }
     return (
 
         <div className='flex flex-column align-items-center pt-6 surface-section border-0 hover:border-blue-900 border-2 border-round text-surface-100 font-bold m-2 flex align-items-center justify-content-center" w-19rem h-16rem'>
 
             <div className='border-round-xl '>
-                <a href={detailsUrl} className=" font-bold text-50 ">
+                <a href={detailsUrl} className=" font-bold text-50">
                     <Image src={modelImageUrl}  alt="Image" width="200" />
                 </a>
             </div>

@@ -2,39 +2,25 @@
 
 import Link from 'next/link';
 import { classNames } from 'primereact/utils';
-import React, { forwardRef, useContext, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import { AppTopbarRef } from '@/types';
 import { LayoutContext } from './context/layoutcontext';
 
 const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
     const { layoutConfig, layoutState, onMenuToggle, showProfileSidebar } = useContext(LayoutContext);
-    const menubuttonRef = useRef(null);
-    const topbarmenuRef = useRef(null);
-    const topbarmenubuttonRef = useRef(null);
-
-    useImperativeHandle(ref, () => ({
-        menubutton: menubuttonRef.current,
-        topbarmenu: topbarmenuRef.current,
-        topbarmenubutton: topbarmenubuttonRef.current
-    }));
 
     return (
-        <div className="layout-topbar bg-white">
+        <div className="layout-topbar bg-white font-light" style={{fontFamily: 'noto-sans, sans-serif'}}>
             <Link href="/" className="layout-topbar-logo">
-                <img src={`/layout/images/logo-${layoutConfig.colorScheme !== 'light' ? 'white' : 'dark'}.svg`} width="180px" height={'50px'} alt="logo" />
+                <img src={`/layout/images/logo.svg`} width="180px" height={'50px'} alt="logo" />
             </Link>
 
-
-            <button ref={topbarmenubuttonRef} type="button" className="p-link layout-topbar-menu-button layout-topbar-button" onClick={showProfileSidebar}>
-                <i className="pi pi-ellipsis-v" />
-            </button>
-
-            <div ref={topbarmenuRef} className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active': layoutState.profileSidebarVisible })}>
+            <div className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active': layoutState.profileSidebarVisible })}>
                 <Link href="./cars">
-                    <button type="button" className="p-link layout-topbar-button font-bold text-xl mr-6">Vehicles</button>
+                    <button type="button" className="p-link layout-topbar-button text-xl mr-6 text-blue-800">Vehicles</button>
                 </Link>
                 <Link href="./company">
-                    <button type="button" className="p-link layout-topbar-button font-bold text-xl mr-3">Company</button>
+                    <button type="button" className="p-link layout-topbar-button text-xl mr-3 text-blue-800">Company</button>
                 </Link>
                 <Link href="./login">
                     <button type="button" className="p-link layout-topbar-button">

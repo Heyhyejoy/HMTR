@@ -7,9 +7,9 @@ const AppFooter = () => {
     const { layoutConfig } = useContext(LayoutContext);
 
     return (
-        <div className="layout-footer text-blue-900 font-light ">
+        <div className="layout-footer surface-800 text-sm mt-8 mb-8 font-light text-blue-800" style={{fontFamily: 'noto-sans, sans-serif'}}>
             <a href="#" className="mr-4">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="#" className=''>Terms of Service</a>
             
         </div>
     );
