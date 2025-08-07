@@ -5,6 +5,26 @@ import React, { useState } from 'react';
 const ButtonTabs: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState<'highlights' | 'exterior' | 'price'>('highlights');
 
+    const [selectedColor, setSelectedColor] = useState<'white' | 'red' | 'blue' | 'grey' | 'black' | 'green'>('white');
+
+    const colorHexMap: Record<typeof selectedColor, string> = {
+        white: '#ffffff',
+        red: '#a53434ff',
+        blue: '#908dacff',
+        grey: '#b2b2b2ff',
+        black: '#3d3d3dff',
+        green: '#526d63ff',
+    };
+
+    const colorImageMap: Record<typeof selectedColor, string> = {
+        white: './layout/images/whitei10.avif',
+        red: './layout/images/redi10.avif',
+        blue: './layout/images/bluei10.avif',
+        grey: './layout/images/greyi10.avif',
+        black: './layout/images/blacki10.avif',
+        green: './layout/images/greeni10.avif'
+    };
+
     const buttonStyle = (tab: string) => {
         const isActive = selectedTab === tab;
         return {
@@ -63,11 +83,11 @@ const ButtonTabs: React.FC = () => {
                                         Dynamic and stylish.
                                     </p>
                                     <p className='font-normal text-sm text-left'>
-                                        With its flowing lines and sharp details, the i10's 
+                                        With its flowing lines and sharp details, the i10's
                                         <br></br>
-                                        renewed design makes a difference with its 
+                                        renewed design makes a difference with its
                                         <br></br>
-                                        sporty stance, new wheels and eye-catching 
+                                        sporty stance, new wheels and eye-catching
                                         <br></br>new LED lighting system.
                                     </p>
                                 </div>
@@ -83,9 +103,9 @@ const ButtonTabs: React.FC = () => {
                                         Connection options with technology that makes a difference.
                                     </p>
                                     <p className='font-normal text-sm text-left mb-4'>
-                                        Enjoy the road with Apple CarPlay™ and Android 
+                                        Enjoy the road with Apple CarPlay™ and Android
                                         <br></br>
-                                        Auto™, available on the 8-inch touchscreen in 
+                                        Auto™, available on the 8-inch touchscreen in
                                         <br></br>
                                         the new fully digital instrument cluster.
                                     </p>
@@ -102,11 +122,11 @@ const ButtonTabs: React.FC = () => {
                                         More safety on the roads, greater pleasure.
                                     </p>
                                     <p className='font-normal text-sm text-left'>
-                                        The i10 features one of the most comprehensive 
+                                        The i10 features one of the most comprehensive
                                         <br></br>
-                                        active safety technologies in its class, including 
+                                        active safety technologies in its class, including
                                         <br></br>
-                                        Hyundai Smart Sense, our advanced driver 
+                                        Hyundai Smart Sense, our advanced driver
                                         <br></br>
                                         assistance system.
                                     </p>
@@ -118,27 +138,53 @@ const ButtonTabs: React.FC = () => {
 
             case 'exterior':
                 return (
-                    <div>
-                        <h2 className="text-2xl font-bold mb-2">Exterior Design 🖼️</h2>
-                        <p>세련된 디자인으로 어디서든 시선을 끕니다.</p>
+                    <div style={{ fontFamily: 'noto-sans, sans-serif' }}>
+                        <h2 className="text-4xl font-bold mt-8 mb-2">i10 Exterior Design</h2>
+                        <h2 className="text-2xl font-bold mt-8 mb-4">Dynamic and stylish.</h2>
+                        <div className='' style={{ fontFamily: 'noto-sans, sans-serif' }}>
+                            <p className="text-sm mb-2">
+                                With dynamic updates to its assertive design, this bold city car is the best example of how little things can make a big difference.
+                            </p>
+                        </div>
                         <img
-                            src="/images/exterior.png"
-                            alt="Exterior"
-                            className="mt-4 w-[80%] mx-auto rounded-lg shadow"
+                            src={colorImageMap[selectedColor]}
+                            alt={`${selectedColor} car`}
+                            className="mt-4 w-6 "
                         />
+                        <div className="">
+                            {(['white', 'red', 'blue', 'grey', 'black', 'green'] as const).map(color => (
+                                <button
+                                    key={color}
+                                    onClick={() => setSelectedColor(color)}
+                                    className='m-2'
+                                    style={{
+                                        width: '40px',
+                                        height: '40px',
+                                        borderRadius: '50%',
+                                        backgroundColor: colorHexMap[color],
+                                        border: selectedColor === color ? '3px solid gray' : '1px solid lightgray',
+                                        cursor: 'pointer'
+                                    }}
+                                    title={color}
+                                />
+                            ))}
+                        </div>
+
+
                     </div>
                 );
 
+
             case 'price':
                 return (
-                    <div>
-                        <h2 className="text-2xl font-bold mb-2">Price 💰</h2>
-                        <p>가격대는 다음과 같습니다:</p>
-                        <ul className="list-disc list-inside text-left inline-block">
-                            <li>기본형: ₩20,000,000</li>
-                            <li>프리미엄형: ₩25,000,000</li>
-                            <li>할부 옵션: 월 ₩300,000 ~</li>
-                        </ul>
+                    <div style={{ fontFamily: 'noto-sans, sans-serif' }}>
+                        <h2 className="text-4xl font-bold mt-8 mb-2">i10 Price </h2>
+                        <h2 className="text-2xl font-bold mt-8 mb-4">Dynamic and stylish.</h2>
+                        <div className='' style={{ fontFamily: 'noto-sans, sans-serif' }}>
+                            <p className="text-sm mb-2">
+                                With dynamic updates to its assertive design, this bold city car is the best example of how little things can make a big difference.
+                            </p>
+                        </div>
                     </div>
                 );
 
@@ -151,7 +197,7 @@ const ButtonTabs: React.FC = () => {
     return (
         <div className="mt-8" style={{ textAlign: 'center' }}>
             <img
-                src="./layout/images/bayon_landing.png"
+                src="./layout/images/i10_landing.png"
                 alt="Hyundai car"
                 className="w-full h-auto"
             />

@@ -34,8 +34,8 @@ const CarsListingPage = () => {
                     className="w-full h-auto"
                 />
             </div>
-            <h4 className='mb-4 font-bold text-4xl text-blue-900 ml-8 mt-8'>Our Car Models</h4>
-            <div className="grid">
+            <h4 className='mb-4 font-bold text-4xl text-blue-900 ml-8 mt-8' style={{ fontFamily: 'noto-sans, sans-serif' }}>Our Car Models</h4>
+            <div className="grid" style={{ fontFamily: 'noto-sans, sans-serif' }}>
                 {ourCarModels.map((modelItem) => {
                     return <div className='flex'>
                         <CarComponent
@@ -46,6 +46,11 @@ const CarsListingPage = () => {
                         ></CarComponent>
                     </div>
                 })}
+            </div>
+            <div className = 'ml-8' style={{ fontFamily: 'noto-sans, sans-serif' }}>
+                <p>
+                    Click for details.
+                </p>
             </div>
         </div>
     );

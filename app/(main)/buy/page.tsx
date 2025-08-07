@@ -37,9 +37,9 @@ export default function HyundaiCustomizer() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8 font-sans">
+    <div className="container ml-8 px-4 py-8" style={{ fontFamily: 'noto-sans, sans-serif' }}>
       <main>
-        <h2 className="text-2xl font-bold">Build Your Hyundai</h2>
+        <h2 className="text-3xl mt-6 font-bold">Build Your Hyundai</h2>
         <p className="mb-4">Customize your dream car and get an instant price</p>
 
         <figure className="mb-4">
@@ -55,14 +55,14 @@ export default function HyundaiCustomizer() {
         </figure>
 
         <section className="mb-6">
-          <h3 className="text-xl font-semibold mb-2">1. Choose Engine and Hardware</h3>
+          <h3 className="mt-6 text-xl font-semibold mb-2 ">1. Choose Engine and Hardware</h3>
           <div className="grid">
-            <div className="col">
+            <div className="col ">
               {engineOptions.map(({ name, price }) => (
                 <button
                   key={name}
                   onClick={() => setSelectedEnginePrice(price)}
-                  className="h-6rem w-15rem m-2 bg-white border-blue-900 border-round hover:bg-gray-100">
+                  className="h-6rem w-15rem m-2 border-2 border-round-xl">
                   {name} {price > 0 && `(+$${price})`}
                 </button>
               ))}
@@ -101,7 +101,7 @@ export default function HyundaiCustomizer() {
                   setSelectedRim(name);
                   setSelectedRimPrice(price);
                 }}
-                className= {`rim-option ${selectedRim === name ? "selected" : ""} h-6rem w-15rem m-2 bg-white border-blue-900 border-round hover:bg-gray-100`}
+                className= {`rim-option ${selectedRim === name ? "selected" : ""} h-6rem w-15rem m-2 bg-white border-blue-900 border-2 border-round-xl hover:bg-gray-100`}
               >
                 
                 <p>{name} {price > 0 && `(+$${price})`}</p>
