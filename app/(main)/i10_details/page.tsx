@@ -1,9 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 
 const ButtonTabs: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState<'highlights' | 'exterior' | 'price'>('highlights');
+
+    const router = useRouter();
+
 
     const [selectedColor, setSelectedColor] = useState<'white' | 'red' | 'blue' | 'grey' | 'black' | 'green'>('white');
 
@@ -177,16 +182,72 @@ const ButtonTabs: React.FC = () => {
 
             case 'price':
                 return (
-                    <div style={{ fontFamily: 'noto-sans, sans-serif' }}>
-                        <h2 className="text-4xl font-bold mt-8 mb-2">i10 Price </h2>
-                        <h2 className="text-2xl font-bold mt-8 mb-4">Dynamic and stylish.</h2>
-                        <div className='' style={{ fontFamily: 'noto-sans, sans-serif' }}>
-                            <p className="text-sm mb-2">
-                                With dynamic updates to its assertive design, this bold city car is the best example of how little things can make a big difference.
-                            </p>
+                    <div className='text-base relative' style={{ fontFamily: 'noto-sans, sans-serif' }}>
+                        <div className="overflow-x-auto mt-8">
+                            <table style={{ margin: '0 auto', borderCollapse: 'collapse', width: '60%' }}>
+                                <thead>
+                                    <tr style={{ backgroundColor: '#f0f0f0' }}>
+                                        <th style={{ padding: '12px', border: '1px solid #ccc' }}>Model Variant</th>
+                                        <th style={{ padding: '12px', border: '1px solid #ccc' }}>Transmission</th>
+                                        <th style={{ padding: '12px', border: '1px solid #ccc' }}>Max List Price (USD)</th>
+                                        <th style={{ padding: '12px', border: '1px solid #ccc' }}>Campaign Price (USD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>1.2 MPI 79PS Jump</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>Manual</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$33,600</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$32,400</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>1.2 MPI 79PS Jump</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>AMT</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$35,100</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$33,900</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>1.2 MPI 79PS Style</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>AMT</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$36,100</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$35,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>1.2 MPI 79PS Elite Dual Color</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>AMT</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$38,400</td>
+                                        <td style={{ padding: '10px', border: '1px solid #ccc' }}>$37,300</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {/* Purchase 버튼 */}
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            marginTop: '2rem',
+                            marginRight: '20%',
+                        }}>
+                            <button
+                                style={{
+                                    padding: '10px 20px',
+                                    border: '2px solid navy',
+                                    backgroundColor: 'navy',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                    borderRadius: '6px',
+                                    fontWeight: 'bold'
+                                }}
+                                onClick={() => router.push('./buy')}
+                            >
+                                Purchase
+                            </button>
+
                         </div>
                     </div>
                 );
+
 
             default:
                 return null;

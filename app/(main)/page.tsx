@@ -1,21 +1,44 @@
 'use client';
-import React from 'react';
 
+import React, { useEffect, useState, useRef } from 'react';
 
-export default function landingPage() {
+const images = [
+  './layout/images/bayon_landing.png',
+  './layout/images/i10_landing.png',
+  './layout/images/i20_landing.png',
+];
 
-    return (
-        <div className="">
-            <div className='mt-8'>
-                
-                <img
-                    src="./layout/images/bayon_landing.png"
-                    alt="Hyundai car"
-                    className="w-full h-auto"
-                />
-                
-            </div>
-            <h4 className='mb-4 font-bold text-4xl text-blue-900 ml-8 mt-8'  style={{fontFamily: 'sans-serif'}}>Our Car Models</h4>
-        </div>
-    );
+export default function LandingSlider() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(nextSlide, 3000);
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [currentIndex]);
+
+  return (
+    <div className="overflow-hidden w-full mt-8">
+      <div
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Slide ${index + 1}`}
+            className="w-full flex-shrink-0"
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
